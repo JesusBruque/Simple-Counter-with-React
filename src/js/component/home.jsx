@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import Card from "./Card.jsx";
 
 import "../../styles/home.css";
+import { number } from "prop-types";
 
 //include images into your bundle
 
@@ -14,20 +15,23 @@ const Home = (props) => {
 	return (
 		<div className="container d-flex">
 			<Card img={img} printImg={true} />
-			<Card img={img} printImg={false} />
-			<Card img={img} printImg={false} />
-			<Card img={img} printImg={false} />
-			<Card img={img} printImg={false} />
-			<Card img={img} printImg={false} />
-			<Card img={img} value={props.seconds} printImg={false} />
+			<Card img={img} printImg={false} value={props.years} />
+			<Card img={img} printImg={false} value={props.months} />
+			<Card img={img} printImg={false} value={props.days} />
+			<Card img={img} printImg={false} value={props.hours} />
+			<Card img={img} printImg={false} value={props.minutes} />
+			<Card img={img} printImg={false} value={props.seconds} />
 		</div>
 	);
 };
 
-Home.prototype = {
-	value: PropTypes.number,
-	img: PropTypes.string,
-	printImg: PropTypes.bool,
+Home.PropTypes = {
+	years: number,
+	months: number,
+	days: number,
+	hours: number,
+	minutes: number,
+	seconds: number,
 };
 
 export default Home;
