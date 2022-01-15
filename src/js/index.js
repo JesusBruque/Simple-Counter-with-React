@@ -1,4 +1,5 @@
 //import react into the bundle
+import PropTypes from "prop-types";
 import React from "react";
 import ReactDOM from "react-dom";
 
@@ -9,4 +10,10 @@ import "../styles/index.css";
 import Home from "./component/home.jsx";
 
 //render your react application
-ReactDOM.render(<Home />, document.querySelector("#app"));
+
+let sum = 0;
+
+setInterval(() => {
+	ReactDOM.render(<Home seconds={sum} />, document.querySelector("#app"));
+	sum++;
+}, 1000);
